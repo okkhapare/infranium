@@ -1,0 +1,24 @@
+name: Lighthouse CI Audit
+
+on:
+  workflow_dispatch: # manually triggered workflow
+
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://www.infranium.in/
+            https://www.infranium.in/about-us
+            https://www.infranium.in/project
+            https://www.infranium.in/singleproject
+            https://www.infranium.in/contact-us
+            https://www.infranium.in/faq
+          uploadArtifacts: true
+          temporaryPublicStorage: true
