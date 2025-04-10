@@ -1,8 +1,3 @@
-name: Lighthouse CI - Mobile & Desktop
-
-on:
-  workflow_dispatch:
-
 jobs:
   lighthouse-mobile:
     name: Mobile Audit
@@ -22,6 +17,7 @@ jobs:
           configPath: .lighthouserc.mobile.json
           uploadArtifacts: true
           temporaryPublicStorage: true
+          **artifactName: lighthouse-mobile-reports**  # 👈 unique name
 
   lighthouse-desktop:
     name: Desktop Audit
@@ -41,3 +37,4 @@ jobs:
           configPath: .lighthouserc.desktop.json
           uploadArtifacts: true
           temporaryPublicStorage: true
+          **artifactName: lighthouse-desktop-reports**  # 👈 unique name
