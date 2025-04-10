@@ -1,3 +1,8 @@
+name: Lighthouse CI - Mobile & Desktop
+
+on:
+  workflow_dispatch:  # This enables manual trigger via the Actions tab
+
 jobs:
   lighthouse-mobile:
     name: Mobile Audit
@@ -17,7 +22,7 @@ jobs:
           configPath: .lighthouserc.mobile.json
           uploadArtifacts: true
           temporaryPublicStorage: true
-          **artifactName: lighthouse-mobile-reports**  # 👈 unique name
+          artifactName: lighthouse-mobile-reports
 
   lighthouse-desktop:
     name: Desktop Audit
@@ -37,4 +42,4 @@ jobs:
           configPath: .lighthouserc.desktop.json
           uploadArtifacts: true
           temporaryPublicStorage: true
-          **artifactName: lighthouse-desktop-reports**  # 👈 unique name
+          artifactName: lighthouse-desktop-reports
