@@ -1,0 +1,16 @@
+{
+  "ci": {
+    "collect": {
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 375,
+          "height": 667,
+          "deviceScaleRatio": 2,
+          "disabled": false
+        }
+      }
+    }
+  }
+}
