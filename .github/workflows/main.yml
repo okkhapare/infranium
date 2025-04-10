@@ -1,16 +1,15 @@
-name: Lighthouse CI Audit
+name: Lighthouse CI - Mobile & Desktop
 
 on:
-  workflow_dispatch: # manually triggered workflow
+  workflow_dispatch:
 
 jobs:
-  lighthouseci:
+  lighthouse-mobile:
+    name: Mobile Audit
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Run Lighthouse CI
+      - uses: actions/checkout@v4
+      - name: Run Lighthouse CI (Mobile)
         uses: treosh/lighthouse-ci-action@v11
         with:
           urls: |
@@ -20,5 +19,25 @@ jobs:
             https://www.infranium.in/singleproject
             https://www.infranium.in/contact-us
             https://www.infranium.in/faq
+          configPath: .lighthouserc.mobile.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  lighthouse-desktop:
+    name: Desktop Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Lighthouse CI (Desktop)
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://www.infranium.in/
+            https://www.infranium.in/about-us
+            https://www.infranium.in/project
+            https://www.infranium.in/singleproject
+            https://www.infranium.in/contact-us
+            https://www.infranium.in/faq
+          configPath: .lighthouserc.desktop.json
           uploadArtifacts: true
           temporaryPublicStorage: true
